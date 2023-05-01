@@ -1,0 +1,104 @@
+<!-- THIS IS TOOL GENERATED SESSION FILE. PLEASE DO NOT MODIFY THIS -->
+<!DOCTYPE visualizer_session>
+<session version="0.2" featureversion="0.3" skip_do_file="0">
+ <app argc="5">
+  <argv value="/veloce/Visualizer_2020.04/visualizer/linux_x86_64/Visualizer/bin/hdlclient" pos="0"/>
+  <argv value="+no_session" pos="1"/>
+  <argv value="+variant_info" pos="2"/>
+  <argv value="+velocedataset+veloce.wave/mydir.stw" pos="3"/>
+  <argv value="+designfile+veloce.wave/mydir.stw/visualizer.out/VIS_DATA/design.bin" pos="4"/>
+ </app>
+ <window_config>
+  <dockareas bottom="477" right="615" top="0" left="263"/>
+  <taborder bottom="transcript+wave+" right="variables+" left="structure+"/>
+  <activetab bottom="wave" right="variables" activewindow="wave" left="structure"/>
+  <window x="0" visible="1" type="transcript" y="0" undocked="0" dock_location="bottom"/>
+  <window x="0" width="1920" visible="1" height="1016" type="wave" y="27" undocked="0" dock_location="bottom"/>
+  <window id="1" x="330" width="1076" visible="0" height="616" type="wave" y="90" undocked="1" dock_location="bottom"/>
+  <window x="0" visible="1" type="structure" y="0" undocked="0" dock_location="left"/>
+  <window x="0" visible="1" type="variables" y="0" undocked="0" dock_location="right"/>
+  <window x="57" width="1612" visible="1" height="913" type="rtl" y="47" undocked="0"/>
+  <window x="0" visible="0" type="testbench" y="0" undocked="0" dock_location="left"/>
+  <window x="0" visible="1" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="1" x="0" visible="1" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="2" x="0" visible="0" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="3" x="0" visible="0" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="4" x="0" visible="0" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="5" x="0" visible="0" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="6" x="0" visible="0" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="7" x="0" visible="1" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="8" x="0" visible="0" type="source" y="0" undocked="0" dock_location="center"/>
+  <window id="9" x="0" visible="0" type="source" y="0" undocked="0" dock_location="center"/>
+  <window x="160" width="1100" visible="0" height="300" type="search" y="380" undocked="1" dock_location="bottom"/>
+  <window x="0" visible="0" type="drvrecadv" y="0" undocked="0" dock_location="right"/>
+  <window x="0" visible="0" type="pathbrowser" y="0" undocked="0" dock_location="right"/>
+  <window x="0" visible="0" type="schematic" y="0" undocked="0" dock_location="right"/>
+ </window_config>
+ <wave_file_mgr>
+  <waveFile fileName="/home/honzha2t/BillTest/LightUart_MultiPort/veloce.wave/mydir.stw" tagName="mydir_stw" waveType="1"/>
+ </wave_file_mgr>
+ <gui>
+  <main_window visible="1">
+   <srcbrowser primary="true" instancename="Top"/>
+   <sourcetclcommands>
+    <tcl command="src activate source"/>
+    <tcl command="src top 109"/>
+   </sourcetclcommands>
+   <edge_gui cur_selection="AnyEdge"/>
+  </main_window>
+  <watchTower_cur_setting curRadix="8" curActiveWaveFile="mydir_stw" curDisplayTimeUnit="0" customDisplayTimeUnitListStr="" curDisplayTimeUnitStr="1s">
+   <curTime hightime="0" lowtime="553100000"/>
+  </watchTower_cur_setting>
+  <drv_rec_data drivers="true"/>
+  <transcript>
+   <window x="-2112" width="1612" height="208" y="-708"/>
+  </transcript>
+  <wave name="Wave0">
+   <timeunit value="2"/>
+   <frequnit value="2"/>
+   <showdiff value="0"/>
+   <wavetime start="0" end="2224300001"/>
+  </wave>
+  <structure>
+   <window x="0" width="263" height="323" y="56"/>
+  </structure>
+  <variables UPF="0" CA="0" VA="0"/>
+  <source>
+   <window x="0" width="718" height="319" y="0"/>
+  </source>
+ </gui>
+ <wave_mgr sync_time_range="0">
+  <waveWindow displayGrid="0" wintype="4" displayRadixWithValue="0" secNudge="1" displayTimeUnit="0" displayFileTag="1" displayScopeName="1" waveWidth="1336" showSecCursor="0" showMarkers="1" swapRepresentationOfX="0" trackViewToTime="1" nameWidth="150" displayTimeUnitStr="1s" snapToEdge="1" displayGlobalView="1" displayLeadingZeros="0" valueWidth="81" signalHeight="18" primNudge="1" alignBaseName="0" value_tooltip="0">
+   <window name="Wave0">
+    <timeunit value="2"/>
+    <frequnit value="2"/>
+    <showdiff value="0"/>
+    <wavetime start="0" end="2224300001"/>
+   </window>
+   <viewPort>
+    <beginTime hightime="0" lowtime="0"/>
+    <endTime hightime="0" lowtime="2224300001"/>
+    <beginViewTime hightime="0" lowtime="0"/>
+    <endViewTime hightime="0" lowtime="1117521643"/>
+    <beginLastViewTime hightime="0" lowtime="0"/>
+    <endLastViewTime hightime="0" lowtime="1117521643"/>
+   </viewPort>
+   <primCursor hightime="0" lowtime="553100000"/>
+   <wavetclcommands>
+    <tcl command="onerror resume&#xa;wave update off&#xa;wave clearselection&#xa;"/>
+    <tcl commandblock="custom radix definitions"></tcl>
+    <tcl command="wave update off"/>
+    <tcl command="wave add Top.clock10M -tag mydir_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.reset -tag mydir_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.txd -tag mydir_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.rxd -tag mydir_stw -radix hexadecimal -select"/>
+    <tcl command="wave update on"/>
+    <tcl command="wave top 0"/>
+    <tcl command="wave zoom range 0 1117521643"/>
+    <tcl command=""/>
+   </wavetclcommands>
+  </waveWindow>
+ </wave_mgr>
+ <windows/>
+ <dut selection="Top"/>
+</session>

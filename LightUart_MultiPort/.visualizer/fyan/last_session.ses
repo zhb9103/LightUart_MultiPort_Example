@@ -1,0 +1,148 @@
+<!-- THIS IS TOOL GENERATED SESSION FILE. PLEASE DO NOT MODIFY THIS -->
+<!DOCTYPE visualizer_session>
+<session skip_do_file="0" featureversion="0.3" version="0.2">
+ <app argc="5">
+  <argv value="/veloce/Visualizer_2021.2_1/visualizer/bin/../linux_x86_64/VisualizerRls/bin/hdlclient" pos="0"/>
+  <argv value="+no_session" pos="1"/>
+  <argv value="+variant_info" pos="2"/>
+  <argv value="+velocedataset+veloce.wave/tbx.stw" pos="3"/>
+  <argv value="+designfile+veloce.wave/tbx.stw/visualizer.out/VIS_DATA/design.bin" pos="4"/>
+ </app>
+ <window_config>
+  <dockareas left="243" right="496" bottom="112" top="0"/>
+  <taborder left="structure+testbench+classes+" right="variables+drvrecadv+" bottom="transcript+"/>
+  <activetab left="structure" right="variables" bottom="transcript"/>
+  <window x="0" undocked="0" visible="1" dock_location="left" y="0" type="structure"/>
+  <window x="0" undocked="0" visible="1" dock_location="left" y="0" type="testbench"/>
+  <window x="0" undocked="0" visible="1" dock_location="left" y="0" type="classes"/>
+  <window x="0" undocked="0" visible="1" dock_location="right" y="0" type="variables"/>
+  <window x="0" undocked="0" visible="1" dock_location="right" y="0" type="drvrecadv"/>
+  <window width="1091" x="181" undocked="0" visible="1" dock_location="bottom" y="567" type="transcript" height="482"/>
+  <window width="1378" x="118" undocked="0" visible="1" y="121" type="rtl" height="899"/>
+  <window width="1447" x="327" undocked="1" visible="1" dock_location="right" y="215" type="wave" height="946"/>
+  <window x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="1" width="1456" x="333" undocked="0" visible="0" dock_location="center" y="112" type="source" height="891"/>
+  <window id="2" x="0" undocked="0" visible="1" dock_location="center" y="0" type="source"/>
+  <window id="3" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="4" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="5" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="6" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="7" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="8" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="9" x="0" undocked="0" visible="1" dock_location="center" y="0" type="source"/>
+  <window id="10" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="11" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="12" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="13" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="14" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="15" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="16" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="17" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="18" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="19" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window id="20" x="0" undocked="0" visible="0" dock_location="center" y="0" type="source"/>
+  <window x="0" undocked="0" visible="0" dock_location="right" y="0" type="velocememory"/>
+  <window width="1381" x="274" undocked="1" visible="0" dock_location="bottom" y="180" type="search" height="596"/>
+  <window width="256" x="0" undocked="0" visible="0" dock_location="right" y="0" type="generallist" height="238"/>
+  <window x="0" undocked="0" visible="0" dock_location="right" y="0" type="tracexlist"/>
+  <window x="0" undocked="0" visible="0" dock_location="right" y="0" type="instances"/>
+  <window x="0" undocked="0" visible="0" dock_location="right" y="0" type="pathbrowser"/>
+  <window x="0" undocked="0" visible="0" dock_location="right" y="0" type="deadlogictab"/>
+  <window x="0" undocked="0" visible="0" dock_location="right" y="0" type="constconetab"/>
+  <window x="0" undocked="0" visible="0" dock_location="right" y="0" type="netaliasestab"/>
+ </window_config>
+ <wave_file_mgr>
+  <waveFile tagName="tbx_stw" waveType="1" fileName="/home/fyan/lab/demos/LightUartTransactor_Replay_bin/veloce.wave/tbx.stw"/>
+ </wave_file_mgr>
+ <gui>
+  <main_window visible="1">
+   <srcbrowser instancename="Top"/>
+   <sourcetclcommands>
+    <tcl command="src activate source"/>
+    <tcl command="src top 40"/>
+   </sourcetclcommands>
+   <srcbrowser instancename="Top.uartTransactor"/>
+   <sourcetclcommands>
+    <tcl command="src activate source1"/>
+    <tcl command="src top 82"/>
+   </sourcetclcommands>
+   <srcbrowser value_tooltip_mode="true" instancename="Top.dceLoopback" primary="true"/>
+   <sourcetclcommands>
+    <tcl command="src activate source2"/>
+    <tcl command="src top 158"/>
+   </sourcetclcommands>
+   <edge_gui cur_selection="AnyEdge"/>
+  </main_window>
+  <watchTower_cur_setting customDisplayTimeUnitListStr="" curDisplayTimeUnitStr="1ms" curActiveWaveFile="tbx_stw" curDisplayTimeUnit="-3" curRadix="8">
+   <curTime lowtime="1075630816" hightime="4"/>
+  </watchTower_cur_setting>
+  <drv_rec_data drivers="true"/>
+  <structure>
+   <window width="243" x="0" y="58" height="672"/>
+  </structure>
+  <testbench/>
+  <classes/>
+  <variables CA="0" UPF="0" VA="0"/>
+  <drvrecadv/>
+  <transcript>
+   <window width="1378" x="0" y="761" height="112"/>
+  </transcript>
+  <wave name="Wave0">
+   <timeunit value="5"/>
+   <frequnit value="2"/>
+   <showdiff value="0"/>
+   <wavetime end="2415281100000" start="0"/>
+  </wave>
+ </gui>
+ <wave_mgr sync_time_range="0">
+  <waveWindow displayRadixWithValue="0" displayGlobalView="1" displayLeadingZeros="0" secNudge="1" snapToEdge="1" showMarkers="1" signalHeight="19" justifySignalPath="Right" swapRepresentationOfX="0" primNudge="1" displayTimeUnitStr="1ms" trackViewToTime="1" valueWidth="92" displayScopeName="0" displayFileTag="1" displayTimeUnit="-3" alignBaseName="0" nameWidth="323" showSecCursor="1" waveWidth="987" wintype="4" value_tooltip="0" displayGrid="0">
+   <window name="Wave0">
+    <timeunit value="5"/>
+    <frequnit value="2"/>
+    <showdiff value="0"/>
+    <wavetime end="2415281100000" start="0"/>
+   </window>
+   <viewPort>
+    <beginTime lowtime="0" hightime="0"/>
+    <endTime lowtime="1509479648" hightime="562"/>
+    <beginViewTime lowtime="1016291169" hightime="4"/>
+    <endViewTime lowtime="1383136627" hightime="4"/>
+    <beginLastViewTime lowtime="1016291169" hightime="4"/>
+    <endLastViewTime lowtime="1383136627" hightime="4"/>
+   </viewPort>
+   <primCursor lowtime="1075630816" hightime="4"/>
+   <secCursor lowtime="1042679648" hightime="562"/>
+   <wavetclcommands>
+    <tcl command="onerror resume&#xa;wave update off&#xa;wave clearselection&#xa;"/>
+    <tcl commandblock="custom radix definitions"></tcl>
+    <tcl command="wave update off"/>
+    <tcl command="wave zoom range 18196160353 18563005811"/>
+    <tcl command="wave add Top.uartTransactor.clk -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave expr -alias Top.uartTransactor.clk_CWR -radix decimal {$wavecountrise (Top.uartTransactor.clk)}"/>
+    <tcl command="wave add Top.uartTransactor.cts -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.rts -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.rxd -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.txd -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add {Top.uartTransactor.State[31:0]} -tag tbx_stw -radix mnemonic"/>
+    <tcl command="wave add {Top.uartTransactor.cnt[31:0]} -tag tbx_stw -radix hexadecimal -subitemconfig { {Top.uartTransactor.cnt[31]} {-radix hexadecimal} {Top.uartTransactor.cnt[30]} {-radix hexadecimal} {Top.uartTransactor.cnt[29]} {-radix hexadecimal} {Top.uartTransactor.cnt[28]} {-radix hexadecimal} {Top.uartTransactor.cnt[27]} {-radix hexadecimal} {Top.uartTransactor.cnt[26]} {-radix hexadecimal} {Top.uartTransactor.cnt[25]} {-radix hexadecimal} {Top.uartTransactor.cnt[24]} {-radix hexadecimal} {Top.uartTransactor.cnt[23]} {-radix hexadecimal} {Top.uartTransactor.cnt[22]} {-radix hexadecimal} {Top.uartTransactor.cnt[21]} {-radix hexadecimal} {Top.uartTransactor.cnt[20]} {-radix hexadecimal} {Top.uartTransactor.cnt[19]} {-radix hexadecimal} {Top.uartTransactor.cnt[18]} {-radix hexadecimal} {Top.uartTransactor.cnt[17]} {-radix hexadecimal} {Top.uartTransactor.cnt[16]} {-radix hexadecimal} {Top.uartTransactor.cnt[15]} {-radix hexadecimal} {Top.uartTransactor.cnt[14]} {-radix hexadecimal} {Top.uartTransactor.cnt[13]} {-radix hexadecimal} {Top.uartTransactor.cnt[12]} {-radix hexadecimal} {Top.uartTransactor.cnt[11]} {-radix hexadecimal} {Top.uartTransactor.cnt[10]} {-radix hexadecimal} {Top.uartTransactor.cnt[9]} {-radix hexadecimal} {Top.uartTransactor.cnt[8]} {-radix hexadecimal} {Top.uartTransactor.cnt[7]} {-radix hexadecimal} {Top.uartTransactor.cnt[6]} {-radix hexadecimal} {Top.uartTransactor.cnt[5]} {-radix hexadecimal} {Top.uartTransactor.cnt[4]} {-radix hexadecimal} {Top.uartTransactor.cnt[3]} {-radix hexadecimal} {Top.uartTransactor.cnt[2]} {-radix hexadecimal} {Top.uartTransactor.cnt[1]} {-radix hexadecimal} {Top.uartTransactor.cnt[0]} {-radix hexadecimal} }"/>
+    <tcl command="wave add {Top.uartTransactor.var1[7:0]} -tag tbx_stw -radix hexadecimal -subitemconfig { {Top.uartTransactor.var1[7]} {-radix hexadecimal} {Top.uartTransactor.var1[6]} {-radix hexadecimal} {Top.uartTransactor.var1[5]} {-radix hexadecimal} {Top.uartTransactor.var1[4]} {-radix hexadecimal} {Top.uartTransactor.var1[3]} {-radix hexadecimal} {Top.uartTransactor.var1[2]} {-radix hexadecimal} {Top.uartTransactor.var1[1]} {-radix hexadecimal} {Top.uartTransactor.var1[0]} {-radix hexadecimal} }"/>
+    <tcl command="wave add {Top.dceLoopback.txData[7:0]} -tag tbx_stw -radix hexadecimal -select"/>
+    <tcl command="wave add {Top.dceLoopback.rxData[7:0]} -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add {Top.uartTransactor.txBuffer[11:0]} -tag tbx_stw -radix hexadecimal -subitemconfig { {Top.uartTransactor.txBuffer[11]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[10]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[9]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[8]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[7]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[6]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[5]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[4]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[3]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[2]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[1]} {-radix hexadecimal} {Top.uartTransactor.txBuffer[0]} {-radix hexadecimal} }"/>
+    <tcl command="wave add Top.uartTransactor.filedone -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.txFlag -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add {Top.uartTransactor.txBuffer[0]} -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.tx_done -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.reset -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.filedone -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave add Top.uartTransactor.txLock -tag tbx_stw -radix hexadecimal"/>
+    <tcl command="wave update on"/>
+    <tcl command="wave top 0"/>
+    <tcl command="wave filter settings -pattern * -leaf_name_only 1 -history {*} -signal_type 255"/>
+    <tcl command=""/>
+   </wavetclcommands>
+  </waveWindow>
+ </wave_mgr>
+ <windows/>
+ <dut selection="Top.dceLoopback"/>
+</session>

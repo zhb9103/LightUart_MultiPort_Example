@@ -1,0 +1,7 @@
+CLOCK dut_wrapper.clock10M 100 MHZ 
+
+
+
+
+PRECISION 1ps
+
