@@ -39,5 +39,5 @@ run:
 
 
 clean:
-	rm -rf work tbxbindings.h veloce.log veloce.med veloce.wave veloce.map adderTransactor.o veloce.*.tar.gz *.log
+	rm -rf work tbxbindings.h veloce.log veloce.med veloce.wave veloce.map adderTransactor.o veloce.*.tar.gz *.log test.wave.*
 

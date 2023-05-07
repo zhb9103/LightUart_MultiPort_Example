@@ -99,16 +99,30 @@ void test::tcp_server_thread()
     int datalen=sprintf(buf,"Server:%u\n",(unsigned int)t);
     send(client_fd[0],buf,datalen,0);
     close(client_fd[0]);
+    
+    dm_clock_suspend();
+    //dm_reg_force();
+    //unsigned nOpType = 3;
+    //dm_reg_setvalue("top.rst_n",&nOpType,1);
+    //dm_reg_getvalue();
 
-    //dm_clock_suspend();
-    //dm_clock_resume();
+    //dm_memory_download_file_v3 ("arg1.pat", "top.xrtl.mem1");
+
+    dm_clock_resume();
+
+    dm_clock_suspend();
+    dm_upload("./test.wave", 0, NULL, 0, 0, 0, 0);
+    dm_clock_resume();
+
     //dm_reinitialize(true);
     //dm_init();
     //dm_memory_download_file_v3 ("arg1.pat", "top.xrtl.mem1");
     char *emuName = new char[100];  
     //dm_Init(0, NULL);
     //dm_connect(emuName);
+    dm_clock_suspend();
     dm_trace_on();
+    dm_clock_resume();
     //dm_run();
 
   
