@@ -58,6 +58,7 @@ void *capture_keystrokes(void *context)
         {
           QUEUE_OBJ_APP.EnQueue(uart_data_process_buffer[uart_data_i]);
         }
+		QUEUE_OBJ_APP.EnQueue(0x0d);
         memset(uart_data_process_buffer,0,UART_DATA_PROCESS_BUFFER_LENGTH);
         uart_data_process_buffer_i=0;
       }
