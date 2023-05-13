@@ -14,9 +14,8 @@ module LightUartTransactor
 	input[31:0]     DBR
 );
 
-parameter int OBJ_INDEX=0;
-parameter int TERM_TYPE=1;
-parameter string OBJ_NAME="";
+int OBJ_INDEX=0;
+parameter TERM_TYPE=1;
 
 localparam CHARACTER_WIDTH = 8;
 
@@ -242,11 +241,11 @@ end
 //Import "DPI-C" declareration
 
 import "DPI-C" context function void sendRxToXterm(int obj_index, byte rxData);
-import "DPI-C" context function void xterm_init(int obj_index,int term_type,input bit[399:0] obj_name,int byte_count);
+import "DPI-C" context function int xterm_init(int term_type);
 import "DPI-C" context function byte xterm_transmit_chars(int obj_index);
 
 
-import "DPI-C" context function void billTestIf(int index);
+//import "DPI-C" context function void billTestIf(int index);
 
 //------------------------------------------------
 bit[399:0] device_name;
@@ -254,18 +253,9 @@ string temp_device_name;
 //--------------------------------------------------
 //This FSM is free-running 
 initial begin
-        
+        int temp_int;
 	@(posedge clk);
-        device_name=0;
-        temp_device_name=OBJ_NAME;
-
-        for(int i=0;i<temp_device_name.len();i++)
-        begin
-          //temp_device_name.getc(i);
-          device_name|=temp_device_name[i];
-          device_name=device_name<<8;
-        end
-	xterm_init(OBJ_INDEX,TERM_TYPE,device_name,temp_device_name.len());
+        OBJ_INDEX=xterm_init(TERM_TYPE);
         //$display("hi %s!",temp_device_name);
  	while(1)//not EOT
 		@(posedge clk);

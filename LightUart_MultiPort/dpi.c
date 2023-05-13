@@ -34,12 +34,21 @@ struct thread_para
   int obj_index;
 }thread_para;
 
+struct obj_index_buffer
+{
+  char obj_name[255];
+  int obj_name_length;
+  int obj_index;
+}obj_index_buffer;
+
 // attention:
 // can't use static member variables, it will get the error message when linking;
 class LightUart_DPI
 {
 private:
 
+public:
+  LightUart_DPI();
 
 public:
   //unsigned int threads_buff[OBJ_NUMBER]={0};
@@ -69,8 +78,19 @@ public:
   unsigned int event_number[OBJ_NUMBER];
   unsigned int total_event[OBJ_NUMBER];
 
+  struct obj_index_buffer obj_index_buff[OBJ_NUMBER];
+
 };
 
+LightUart_DPI::LightUart_DPI()
+{
+  for(int obj_i=0;obj_i<OBJ_NUMBER;obj_i++)
+  {
+    // clear 
+    memset(&this->obj_index_buff[obj_i],0,sizeof(struct obj_index_buffer));
+  }
+
+}
 
 LightUart_DPI LightUart_DPI_Obj;
 
@@ -133,7 +153,7 @@ unsigned long long time_in_ns2()
 extern "C" 
 {
   void getbuf(int obj_index,svBitVecVal* buf, int* count, svBit* eom);
-  void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int byte_count);
+  int xterm_init(int term_type);
   char xterm_transmit_chars(int obj_index);
   void sendRxToXterm(int obj_index, char b);
 }
@@ -318,16 +338,21 @@ void read_config(char* file_path)
 
 
 // exported function;
-void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int byte_count) 
+int xterm_init(int term_type) 
 {
-
-  int sel_item=obj_index;
-  char obj_name_bytes[50];
-  LightUart_DPI_Obj.term_type[obj_index]=term_type;
 
   svScope tempSvScope=svGetScope();
   const char* tempSvScopeName;
   tempSvScopeName=svGetNameFromScope(tempSvScope);
+
+
+  // compare for object name, it will generate a new index if it is a new name;
+  
+
+  int obj_index=0;
+  char obj_name_bytes[50];
+  
+
   //printf("Getted scope name is:%s\n",tempSvScopeName);
   //
   int in=0;
@@ -347,21 +372,38 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
   }
   if(in>0)
   {
+    //int obj_i=0;
     //printf("entry is:%s\n",str1[in-1]);
+    for(int obj_i=0;obj_i<OBJ_NUMBER;obj_i++)
+    {
+      // clear 
+      //memset(&LightUart_DPI_Obj->obj_index_buff[obj_i],0,sizeof(struct obj_index_buffer));
+      //printf("obj_name_len:%d\n",LightUart_DPI_Obj.obj_index_buff[obj_i].obj_name_length);
+
+      if(LightUart_DPI_Obj.obj_index_buff[obj_i].obj_name_length==0)
+      {
+        
+        obj_index=obj_i;
+        LightUart_DPI_Obj.obj_index_buff[obj_i].obj_name_length=strlen(str1[in-1]);
+        LightUart_DPI_Obj.obj_index_buff[obj_i].obj_index=obj_i;
+        memcpy(LightUart_DPI_Obj.obj_index_buff[obj_i].obj_name,str1[in-1],strlen(str1[in-1]));
+        break;
+      }
+    }
   }
+  LightUart_DPI_Obj.term_type[obj_index]=term_type;
   //str1=strtok_r(tempSvScopeName,".",&str2);
- 
-
-
+   
+  
   LightUart_DPI_Obj.obj_name_buff_count=0;
-  memset(obj_name_bytes,0,50);
-  memset(LightUart_DPI_Obj.obj_name_buff[obj_index],0,50);
-  memcpy(obj_name_bytes,obj_name_bits,byte_count+1);
+  //memset(obj_name_bytes,0,50);
+  //memset(LightUart_DPI_Obj.obj_name_buff[obj_index],0,50);
+  //memcpy(obj_name_bytes,obj_name_bits,byte_count+1);
 
 
-  if(byte_count>1)
+  if(0)
   {
-    for (int temp_i=byte_count;temp_i>0;temp_i--)
+    for (int temp_i=0;temp_i>0;temp_i--)
     {
       //printf("%02x",obj_name_bytes[temp_i]);
       // reverse the data;
@@ -376,6 +418,7 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
     memcpy(LightUart_DPI_Obj.obj_name_buff[obj_index],str1[in-1],strlen(str1[in-1]));
   }
 
+/*
   for(int temp_i=0;temp_i<OBJ_NUMBER;temp_i++)
   {
     memset(LightUart_DPI_Obj.obj_name_buffer[temp_i],0,256);
@@ -383,7 +426,6 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
 
   //read_config("uart-xterm.cfg");
 
-/*
     for(int temp_i=0;temp_i<OBJ_NUMBER;temp_i++)
     {
       printf("seq:%d,name:%s\n",temp_i,obj_name_buffer[temp_i]);
@@ -395,8 +437,8 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
   memset(obj_name,0,256);
 
 /*
-    memcpy(obj_name,obj_name_buffer[sel_item],strlen(obj_name_buffer[sel_item]));
-    printf("cur:%d,name:%s\n",sel_item,obj_name);
+    memcpy(obj_name,obj_name_buffer[obj_index],strlen(obj_name_buffer[obj_index]));
+    printf("cur:%d,name:%s\n",obj_index,obj_name);
 */
 
     //memcpy(obj_name,obj_name_buff[obj_index],strlen(obj_name_buff[obj_index]));
@@ -411,12 +453,10 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
   memset(uart_xterm_buffer,0,256);
 
 
-  sprintf(uartfifo_buffer,"./uart_fifo/uartfifo_%d",sel_item);
-  sprintf(uartfifo_tx_buffer,"./uart_fifo/uartfifo-tx_%d",sel_item);
+  sprintf(uartfifo_buffer,"./uart_fifo/uartfifo_%d",obj_index);
+  sprintf(uartfifo_tx_buffer,"./uart_fifo/uartfifo-tx_%d",obj_index);
 
-
-
-
+  
   pthread_t tid;
 
   // check uart_fifo directory;
@@ -447,6 +487,8 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
   	fprintf(stderr, "Call to fcntl failed.\n");
   	exit(1);
   }
+
+  
   //system("xterm -e ./uart-xterm 1&");//open a new xterm and run uart-xterm
   switch(LightUart_DPI_Obj.term_type[obj_index])
   {
@@ -459,7 +501,7 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
     case 1:
     {
       // startup xterm;
-      sprintf(uart_xterm_buffer,"xterm -T \"%s\" -e ./uart-xterm %d %s&",LightUart_DPI_Obj.obj_name_buff[obj_index],sel_item,LightUart_DPI_Obj.obj_name_buff[obj_index]);
+      sprintf(uart_xterm_buffer,"xterm -T \"%s\" -e ./uart-xterm %d %s&",LightUart_DPI_Obj.obj_name_buff[obj_index],obj_index,LightUart_DPI_Obj.obj_name_buff[obj_index]);
       system(uart_xterm_buffer);
       break;
     }
@@ -472,17 +514,26 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
     }
   }
 
+  //printf("0:%s\n",uart_xterm_buffer);
+
+  //printf("1:%s\n",uartfifo_buffer);
+ 
+
   if (0 > (LightUart_DPI_Obj.rxfd[obj_index] = open (uartfifo_buffer, O_WRONLY))) {
-      perror("open(./uart_fifo/uartfifo)");
+      printf("open(./uart_fifo/uartfifo)\n");
       fflush(stdout);
       exit(-1);
   }
 
+  //printf("2:%s\n",uartfifo_tx_buffer);
+
   if (0 > (LightUart_DPI_Obj.txfd[obj_index] = open (uartfifo_tx_buffer, O_RDONLY))) {
-      perror("open(./uart_fifo/uartfifo-tx)");
+      printf("open(./uart_fifo/uartfifo-tx)\n");
       fflush(stdout);
       exit(-1);
   }
+
+  //printf("------------------here-------------------\n");
 
 
   //pthread_create(&tid, NULL, &read_keystrokes, NULL);
@@ -492,7 +543,8 @@ void xterm_init(int obj_index,int term_type,const svBitVecVal* obj_name_bits,int
   //pthread_create(&tid, NULL, &read_keystrokes, (void *)(&tid));
   pthread_create(&tid, NULL, &read_keystrokes, &temp_thread_para);
   //threads_buff[obj_index]=*((unsigned int *)tid);
-
+  //printf("hello\n");
+  return obj_index;
 }
 
 

@@ -126,9 +126,10 @@ module Top (); // {
     // 0: user operate directly;
     // 1: xterm;
     // 2: tcp server;
-    LightUartTransactor #(.OBJ_INDEX(0),.TERM_TYPE(2),.OBJ_NAME("")) uartTransactor0  (clock10M, cts0, rts0, rxd0, txd0 ,DBR0);
-    LightUartTransactor #(.OBJ_INDEX(1),.TERM_TYPE(1),.OBJ_NAME("light_uart1")) uartTransactor1  (clock10M, cts1, rts1, rxd1, txd1 ,DBR1);
-
+    //LightUartTransactor #(.OBJ_INDEX(0),.TERM_TYPE(0),.OBJ_NAME("Uart0")) uartTransactor0  (clock10M, cts0, rts0, rxd0, txd0 ,DBR0);
+    //LightUartTransactor #(.OBJ_INDEX(1),.TERM_TYPE(1),.OBJ_NAME("Uart1")) uartTransactor1  (clock10M, cts1, rts1, rxd1, txd1 ,DBR1);
+    LightUartTransactor uartTransactor0  (clock10M, cts0, rts0, rxd0, txd0 ,DBR0);
+    LightUartTransactor #(.TERM_TYPE(1)) uartTransactor1  (clock10M, cts1, rts1, rxd1, txd1 ,DBR1);
 
 
     DceLoopback dceLoopback0 (clock10M, reset, rts0, cts0, txd0, rxd0);
